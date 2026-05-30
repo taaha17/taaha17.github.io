@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taha | Developer & AI Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #0B0F19;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="text-slate-100 font-sans selection:bg-blue-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-[#0B0F19]/70 border-b border-slate-800/80">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">bytaha.me</a>
+            <div class="flex space-x-6 text-sm text-slate-400">
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+                <a href="https://llm.bytaha.me" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1">My AI <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="max-w-4xl mx-auto px-6 pt-20 pb-32">
+        <header class="mb-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Open for Collaborations
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
+                Hi, I'm <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">Taha</span>.
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
+                I'm a developer focusing on <span class="text-slate-200 font-medium">AI integrations, RAG systems, and self-hosted infrastructure</span>. Currently studying at HSRW and engineering custom intelligence pipelines.
+            </p>
+            <div class="mt-8 flex gap-4">
+                <a href="#projects" class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all flex items-center gap-2">
+                    View My Work <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+                <a href="https://github.com/taaha17" target="_blank" class="px-5 py-2.5 rounded-lg border border-slate-700 hover:bg-slate-800/50 text-slate-300 font-medium text-sm transition-all flex items-center gap-2">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                </a>
+            </div>
+        </header>
+
+        <!-- About Me -->
+        <section id="about" class="mb-24 scroll-mt-24">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 border-b border-slate-800 pb-2">
+                <i data-lucide="user" class="text-blue-400 w-5 h-5"></i> About Me
+            </h2>
+            <p class="text-slate-400 leading-relaxed mb-4">
+                I bridge the gap between AI development and production-ready deployments. My academic journey at Hochschule Rhein-Waal (HSRW) drives me to solve practical problems—from streamlining student support with retrieval networks to optimizing reading flows for cognitive accessibility.
+            </p>
+            <p class="text-slate-400 leading-relaxed">
+                When I'm not coding, I'm building, maintaining, and scaling secure virtual private servers, experimenting with the latest state-of-the-art LLMs, and maintaining my personal self-hosted cloud tech stack.
+            </p>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="mb-24 scroll-mt-24">
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-2 border-b border-slate-800 pb-2">
+                <i data-lucide="code-2" class="text-blue-400 w-5 h-5"></i> Selected Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Project 1 -->
+                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="p-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20"><i data-lucide="bot" class="w-5 h-5"></i></span>
+                            <a href="https://github.com/taaha17/hsrw-rag-chatbot" target="_blank" class="text-slate-400 hover:text-slate-100"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-slate-100">HSRW RAG Chatbot</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            An intelligent assistant built to help university students query curriculum details and module handbooks. Built with Python and utilizes vector embeddings for local RAG searches.
+                        </p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-2">
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">RAG</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Ollama</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="p-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20"><i data-lucide="sparkles" class="w-5 h-5"></i></span>
+                            <a href="https://github.com/afkrause/adhd_reading_assistant" target="_blank" class="text-slate-400 hover:text-slate-100"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-slate-100">ADHD Reading Assistant</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            An academic collaboration building custom assistive toolsets to optimize comprehension, structure document parsing, and simplify text representation for ADHD profiles.
+                        </p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-2">
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Research</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">PDF Parsing</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i data-lucide="server" class="w-5 h-5"></i></span>
+                            <span class="text-slate-500"><i data-lucide="lock" class="w-4 h-4"></i> Private Stack</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-slate-100">Self-Hosted AI Platform</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            A production-grade, containerized AI environment hosted on an Ubuntu VPS, employing LibreChat, Docker Compose, customized API routing, and Cloudflare CDN infrastructure.
+                        </p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-2">
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Cloudflare</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Ubuntu VPS</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20"><i data-lucide="gamepad-2" class="w-5 h-5"></i></span>
+                            <a href="https://github.com/taaha17/games-ledger" target="_blank" class="text-slate-400 hover:text-slate-100"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-slate-100">Games Ledger</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            A tracker application built as a personal project designed to log, structure, and keep records of gaming achievements, completion progress, and reviews.
+                        </p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-2">
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Git</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Datastores</span>
+                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Application Design</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="border-t border-slate-800/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+            <p>© 2026 Taha. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="https://github.com/taaha17" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>
+                <a href="mailto:contact@bytaha.me" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> Email</a>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Lucide Icons Rendering -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
