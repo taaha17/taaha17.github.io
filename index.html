@@ -3,168 +3,517 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taha | Developer & AI Builder</title>
+    <title>Taha Asif | Infotronic Systems Engineer</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Geist & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Geist', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
+        /* Base setup mimicking paco.me and vercel */
         body {
-            background-color: #0B0F19;
+            background-color: #000000;
+            color: #f4f4f5;
+            overflow-x: hidden;
         }
-        .glow-card:hover {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
-            border-color: rgba(59, 130, 246, 0.4);
+
+        /* Vercel spotlight grid styling */
+        .grid-bg {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
+
+        .spotlight {
+            background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(59, 130, 246, 0.06), transparent 80%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f1f23;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2d2d34;
+        }
+
+        /* Fluid code layout syntax highlighting colors */
+        .yaml-key { color: #f43f5e; }
+        .yaml-string { color: #10b981; }
+        .yaml-comment { color: #71717a; }
+        .yaml-type { color: #3b82f6; }
     </style>
 </head>
-<body class="text-slate-100 font-sans selection:bg-blue-500 selection:text-white">
+<body class="font-sans antialiased relative selection:bg-neutral-800 selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-[#0B0F19]/70 border-b border-slate-800/80">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">bytaha.me</a>
-            <div class="flex space-x-6 text-sm text-slate-400">
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="https://llm.bytaha.me" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1">My AI <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
-            </div>
-        </div>
-    </nav>
+    <!-- Active Mouse Tracking Background Spotlight -->
+    <div id="bg-spotlight" class="absolute inset-0 grid-bg spotlight pointer-events-none z-0"></div>
 
-    <!-- Hero Section -->
-    <main class="max-w-4xl mx-auto px-6 pt-20 pb-32">
-        <header class="mb-16">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-medium mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Open for Collaborations
+    <!-- MAIN CONTAINER (UI VIEW) -->
+    <div id="ui-view" class="relative z-10 transition-opacity duration-300 max-w-4xl mx-auto px-6 py-12 md:py-24">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-16 border-b border-neutral-900 pb-6">
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm tracking-wider text-neutral-400">root@bytaha:~#</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             </div>
-            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-                Hi, I'm <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">Taha</span>.
-            </h1>
-            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
-                I'm a developer focusing on <span class="text-slate-200 font-medium">AI integrations, RAG systems, and self-hosted infrastructure</span>. Currently studying at HSRW and engineering custom intelligence pipelines.
-            </p>
-            <div class="mt-8 flex gap-4">
-                <a href="#projects" class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all flex items-center gap-2">
-                    View My Work <i data-lucide="arrow-down" class="w-4 h-4"></i>
-                </a>
-                <a href="https://github.com/taaha17" target="_blank" class="px-5 py-2.5 rounded-lg border border-slate-700 hover:bg-slate-800/50 text-slate-300 font-medium text-sm transition-all flex items-center gap-2">
-                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+            <div class="flex items-center gap-6">
+                <!-- Mini Command Search Trigger -->
+                <button onclick="toggleCommandPalette()" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded border border-neutral-800 bg-neutral-950 text-xs text-neutral-400 hover:border-neutral-700 transition-all font-mono">
+                    <span>Press</span> <kbd class="px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-[10px]">/</kbd> <span>to act</span>
+                </button>
+                <a href="https://llm.bytaha.me" target="_blank" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                    AI Hub <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
         </header>
 
-        <!-- About Me -->
-        <section id="about" class="mb-24 scroll-mt-24">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 border-b border-slate-800 pb-2">
-                <i data-lucide="user" class="text-blue-400 w-5 h-5"></i> About Me
-            </h2>
-            <p class="text-slate-400 leading-relaxed mb-4">
-                I bridge the gap between AI development and production-ready deployments. My academic journey at Hochschule Rhein-Waal (HSRW) drives me to solve practical problems—from streamlining student support with retrieval networks to optimizing reading flows for cognitive accessibility.
-            </p>
-            <p class="text-slate-400 leading-relaxed">
-                When I'm not coding, I'm building, maintaining, and scaling secure virtual private servers, experimenting with the latest state-of-the-art LLMs, and maintaining my personal self-hosted cloud tech stack.
+        <!-- Hero Section -->
+        <section class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">
+                Taha Asif
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-400 leading-relaxed font-light">
+                Hello there! I'm currently studying my Bachelors in 
+                <a href="https://www.hochschule-rhein-waal.de/en/faculties/communication-and-environment/degree-programmes/bachelor-degree-programmes/infotronic" target="_blank" class="text-white hover:text-blue-400 underline decoration-neutral-800 hover:decoration-blue-400 transition-all underline-offset-4 font-normal">
+                    Infotronic Systems Engineering
+                </a> 
+                at <span class="text-white font-normal">Hochschule Rhein-Waal</span>, Germany. I specialize in assistive research, advanced retrieval systems, model finetuning, and containerized cloud infrastructure.
             </p>
         </section>
 
-        <!-- Projects -->
-        <section id="projects" class="mb-24 scroll-mt-24">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-2 border-b border-slate-800 pb-2">
-                <i data-lucide="code-2" class="text-blue-400 w-5 h-5"></i> Selected Projects
-            </h2>
+        <!-- Bento Tech Dashboard (Vercel / Linear Aesthetic) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- Project 1 -->
-                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="p-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20"><i data-lucide="bot" class="w-5 h-5"></i></span>
-                            <a href="https://github.com/taaha17/hsrw-rag-chatbot" target="_blank" class="text-slate-400 hover:text-slate-100"><i data-lucide="external-link" class="w-5 h-5"></i></a>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 text-slate-100">HSRW RAG Chatbot</h3>
-                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                            An intelligent assistant built to help university students query curriculum details and module handbooks. Built with Python and utilizes vector embeddings for local RAG searches.
-                        </p>
+            <!-- Live Server Terminal Logs (Fvsch Style Widget) -->
+            <div class="md:col-span-2 border border-neutral-900 bg-black/60 rounded-xl p-5 font-mono text-xs flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-center mb-4 border-b border-neutral-900 pb-2">
+                    <span class="text-neutral-500 flex items-center gap-1.5"><i data-lucide="terminal" class="w-3.5 h-3.5"></i> bytaha-droplet:~$ tail -f status.log</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping"></span>
+                </div>
+                <!-- Dynamic Log Feed -->
+                <div id="terminal-feed" class="flex-grow space-y-1.5 text-neutral-400 overflow-hidden select-none">
+                    <!-- Logs generated in JS -->
+                </div>
+            </div>
+
+            <!-- Neofetch / Stats widget -->
+            <div class="border border-neutral-900 bg-black/60 rounded-xl p-5 font-mono text-xs flex flex-col justify-between">
+                <div class="border-b border-neutral-900 pb-2 mb-2 text-neutral-500 flex items-center gap-1.5">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i> sysinfo.sh
+                </div>
+                <div class="space-y-1 text-neutral-300">
+                    <p><span class="text-blue-400">OS:</span> Ubuntu 24.04 LTS</p>
+                    <p><span class="text-blue-400">Host:</span> DO Droplet FRA</p>
+                    <p><span class="text-blue-400">Kernel:</span> Linux 6.8.0</p>
+                    <p><span class="text-blue-400">Docker:</span> Active (4 containers)</p>
+                    <p><span class="text-blue-400">Ping (FRA):</span> <span id="ping-stats" class="text-emerald-400">12ms</span></p>
+                    <p><span class="text-blue-400">Web App:</span> llm.bytaha.me</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Selected Projects Section -->
+        <section class="mb-20">
+            <h2 class="font-mono text-xs tracking-wider text-neutral-500 uppercase mb-8 flex items-center gap-2">
+                <span>01 // Selected Projects</span>
+                <span class="h-[1px] bg-neutral-900 flex-grow"></span>
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Project Row 1 -->
+                <div class="group border border-neutral-900 bg-neutral-950/20 hover:bg-neutral-950/40 hover:border-neutral-800 rounded-xl p-6 transition-all duration-200">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">ADHD Reading Assistant</h3>
+                        <a href="https://github.com/afkrause/adhd_reading_assistant" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <div class="flex gap-2 flex-wrap mt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">RAG</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Ollama</span>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+                        A collaborative academic repository focusing on structural document parsing, comprehension assistive tools, and custom textual optimization for readers with ADHD.
+                    </p>
+                    <div class="flex gap-2 font-mono text-[10px] text-neutral-400">
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Python</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Assistive Tech</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">PDF Parsing</span>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="p-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20"><i data-lucide="sparkles" class="w-5 h-5"></i></span>
-                            <a href="https://github.com/afkrause/adhd_reading_assistant" target="_blank" class="text-slate-400 hover:text-slate-100"><i data-lucide="external-link" class="w-5 h-5"></i></a>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 text-slate-100">ADHD Reading Assistant</h3>
-                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                            An academic collaboration building custom assistive toolsets to optimize comprehension, structure document parsing, and simplify text representation for ADHD profiles.
-                        </p>
+                <!-- Project Row 2 -->
+                <div class="group border border-neutral-900 bg-neutral-950/20 hover:bg-neutral-950/40 hover:border-neutral-800 rounded-xl p-6 transition-all duration-200">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">HSRW RAG Chatbot</h3>
+                        <a href="https://github.com/taaha17/hsrw-rag-chatbot" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <div class="flex gap-2 flex-wrap mt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Research</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">PDF Parsing</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i data-lucide="server" class="w-5 h-5"></i></span>
-                            <span class="text-slate-500"><i data-lucide="lock" class="w-4 h-4"></i> Private Stack</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 text-slate-100">Self-Hosted AI Platform</h3>
-                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                            A production-grade, containerized AI environment hosted on an Ubuntu VPS, employing LibreChat, Docker Compose, customized API routing, and Cloudflare CDN infrastructure.
-                        </p>
-                    </div>
-                    <div class="flex gap-2 flex-wrap mt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Cloudflare</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Ubuntu VPS</span>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+                        An intelligent system enabling seamless curriculum and module handbook queries for HSRW. Leverages vector embeddings and local Ollama pipelines for offline computation.
+                    </p>
+                    <div class="flex gap-2 font-mono text-[10px] text-neutral-400">
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Python</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Vector Embeddings</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Ollama</span>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="glow-card p-6 rounded-xl border border-slate-800/80 bg-[#0E1322]/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20"><i data-lucide="gamepad-2" class="w-5 h-5"></i></span>
-                            <a href="https://github.com/taaha17/games-ledger" target="_blank" class="text-slate-400 hover:text-slate-100"><i data-lucide="external-link" class="w-5 h-5"></i></a>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 text-slate-100">Games Ledger</h3>
-                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                            A tracker application built as a personal project designed to log, structure, and keep records of gaming achievements, completion progress, and reviews.
-                        </p>
+                <!-- Project Row 3 -->
+                <div class="group border border-neutral-900 bg-neutral-950/20 hover:bg-neutral-950/40 hover:border-neutral-800 rounded-xl p-6 transition-all duration-200">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">Self-Hosted AI Platform</h3>
+                        <a href="https://llm.bytaha.me" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <div class="flex gap-2 flex-wrap mt-2">
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Git</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Datastores</span>
-                        <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">Application Design</span>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+                        My private, always-available AI hub running LibreChat inside containerized environments. Integrated securely with Cloudflare, Docker, and multi-model API frameworks.
+                    </p>
+                    <div class="flex gap-2 font-mono text-[10px] text-neutral-400">
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Docker Compose</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">LibreChat</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Nginx Proxy</span>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Footer / Contact -->
-        <footer class="border-t border-slate-800/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <p>© 2026 Taha. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="https://github.com/taaha17" target="_blank" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>
-                <a href="mailto:contact@bytaha.me" class="hover:text-blue-400 transition-colors flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> Email</a>
+        <!-- Technical Stack -->
+        <section class="mb-20">
+            <h2 class="font-mono text-xs tracking-wider text-neutral-500 uppercase mb-8 flex items-center gap-2">
+                <span>02 // Stack & Toolkits</span>
+                <span class="h-[1px] bg-neutral-900 flex-grow"></span>
+            </h2>
+            <div class="flex flex-wrap gap-2.5">
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">Python</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">Docker</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">React</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">Next.js</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">Kotlin</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">Java</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">TypeScript</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">MongoDB</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">PostgreSQL</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">PySide6/Qt</span>
+                <span class="px-3 py-1.5 rounded-lg border border-neutral-900 bg-neutral-950 text-sm text-neutral-300 hover:border-neutral-700 transition-colors cursor-default">Ollama</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-neutral-950 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-neutral-500">
+            <p>© 2026 Taha Asif. Frankfurt Host Platform.</p>
+            <div class="flex gap-6 font-mono text-xs">
+                <a href="https://github.com/taaha17" target="_blank" class="hover:text-white transition-colors flex items-center gap-1.5">
+                    <i data-lucide="github" class="w-3.5 h-3.5"></i> github/taaha17
+                </a>
+                <a href="mailto:contact@bytaha.me" class="hover:text-white transition-colors flex items-center gap-1.5">
+                    <i data-lucide="mail" class="w-3.5 h-3.5"></i> email
+                </a>
             </div>
         </footer>
-    </main>
+    </div>
 
-    <!-- Lucide Icons Rendering -->
+    <!-- MAIN CONTAINER (YAML CONFIG VIEW) -->
+    <div id="yaml-view" class="hidden absolute top-0 left-0 right-0 z-10 max-w-4xl mx-auto px-6 py-12 md:py-24 font-mono text-sm leading-relaxed">
+        <header class="flex justify-between items-center mb-16 border-b border-neutral-900 pb-6">
+            <span class="text-neutral-500">bytaha.me/profile.yaml [Code State]</span>
+            <span class="text-xs text-neutral-600">Line: 1-45</span>
+        </header>
+        
+        <pre class="bg-transparent border border-neutral-900 p-6 rounded-xl overflow-x-auto selection:bg-neutral-800 text-neutral-300">
+<span class="yaml-comment"># Global Metadata Config</span>
+<span class="yaml-key">developer:</span>
+  <span class="yaml-key">name:</span> <span class="yaml-string">"Taha Asif"</span>
+  <span class="yaml-key">role:</span> <span class="yaml-string">"Infotronic Systems Engineer"</span>
+  <span class="yaml-key">location:</span> <span class="yaml-string">"Germany"</span>
+  <span class="yaml-key">education:</span>
+    <span class="yaml-key">degree:</span> <span class="yaml-string">"B.Sc. Infotronic Systems Engineering"</span>
+    <span class="yaml-key">institution:</span> <span class="yaml-string">"Hochschule Rhein-Waal"</span>
+
+<span class="yaml-comment"># Targeted R&amp;D Specializations</span>
+<span class="yaml-key">focus_areas:</span>
+  <span class="yaml-key">-</span> <span class="yaml-string">"Assistive Research Automation"</span>
+  <span class="yaml-key">-</span> <span class="yaml-string">"Retrieval-Augmented Generation (RAG)"</span>
+  <span class="yaml-key">-</span> <span class="yaml-string">"LLM Fine-tuning &amp; Agent Deployment"</span>
+  <span class="yaml-key">-</span> <span class="yaml-string">"Virtual-Private Cloud Infrastructure"</span>
+
+<span class="yaml-comment"># Active Software Stack Configuration</span>
+<span class="yaml-key">technical_stack:</span>
+  <span class="yaml-key">languages:</span> <span class="yaml-type">[</span><span class="yaml-string">"Python"</span>, <span class="yaml-string">"TypeScript"</span>, <span class="yaml-string">"Kotlin"</span>, <span class="yaml-string">"Java"</span><span class="yaml-type">]</span>
+  <span class="yaml-key">frameworks:</span> <span class="yaml-type">[</span><span class="yaml-string">"React"</span>, <span class="yaml-string">"Next.js"</span>, <span class="yaml-string">"PySide6/Qt"</span><span class="yaml-type">]</span>
+  <span class="yaml-key">datastores:</span> <span class="yaml-type">[</span><span class="yaml-string">"MongoDB"</span>, <span class="yaml-string">"PostgreSQL"</span><span class="yaml-type">]</span>
+  <span class="yaml-key">ecosystem:</span> <span class="yaml-type">[</span><span class="yaml-string">"Docker"</span>, <span class="yaml-string">"Ollama"</span>, <span class="yaml-string">"Model Context Protocol"</span><span class="yaml-type">]</span>
+
+<span class="yaml-comment"># Project Index Mapping</span>
+<span class="yaml-key">repositories:</span>
+  <span class="yaml-key">adhd_reading_assistant:</span>
+    <span class="yaml-key">collaborative:</span> <span class="yaml-string">"afkrause"</span>
+    <span class="yaml-key">scope:</span> <span class="yaml-string">"assistive readability optimization"</span>
+  <span class="yaml-key">hsrw-rag-chatbot:</span>
+    <span class="yaml-key">scope:</span> <span class="yaml-string">"academic knowledge graphs &amp; vector search"</span>
+  <span class="yaml-key">games-ledger:</span>
+    <span class="yaml-key">scope:</span> <span class="yaml-string">"videogames ledger backend tracking"</span>
+        </pre>
+    </div>
+
+    <!-- PERSISTENT STATE TOGGLE (Floating Badge UI vs YAML) -->
+    <div class="fixed bottom-6 right-6 z-50 flex border border-neutral-900 bg-neutral-950 p-1.5 rounded-full select-none font-mono text-[11px] shadow-2xl">
+        <button id="toggle-ui" onclick="switchState('ui')" class="px-4 py-1.5 rounded-full font-medium transition-all text-white bg-neutral-800">
+            [UI]
+        </button>
+        <button id="toggle-yaml" onclick="switchState('yaml')" class="px-4 py-1.5 rounded-full font-medium transition-all text-neutral-500 hover:text-neutral-300">
+            [YAML]
+        </button>
+    </div>
+
+    <!-- COMMAND PALETTE MODAL (Linear Style) -->
+    <div id="palette-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+        <div class="border border-neutral-900 bg-neutral-950 w-full max-w-lg rounded-xl overflow-hidden shadow-2xl font-mono text-sm">
+            <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-900">
+                <i data-lucide="chevron-right" class="text-neutral-500 w-4 h-4"></i>
+                <input id="palette-input" type="text" placeholder="Type a command (try '/help' or '/neofetch')..." class="bg-transparent border-0 outline-none text-white w-full placeholder-neutral-600 text-sm">
+                <button onclick="toggleCommandPalette()" class="text-neutral-600 hover:text-neutral-400 text-xs">ESC</button>
+            </div>
+            
+            <div id="palette-results" class="max-h-60 overflow-y-auto p-2 space-y-1">
+                <!-- Commands injected by JS -->
+            </div>
+            
+            <div class="border-t border-neutral-900 px-4 py-2 flex justify-between items-center text-[10px] text-neutral-500">
+                <span>Use commands with a leading slash '/'</span>
+                <span>Enter to execute</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLI Output Pop-up Terminal (For NeoFetch and Easter eggs) -->
+    <div id="cli-popup" class="hidden fixed bottom-6 left-6 z-50 w-80 max-w-full border border-neutral-900 bg-neutral-950/95 backdrop-blur rounded-xl p-5 shadow-2xl font-mono text-xs">
+        <div class="flex justify-between items-center border-b border-neutral-900 pb-2 mb-3">
+            <span class="text-neutral-400">output.log</span>
+            <button onclick="closeCliPopup()" class="text-neutral-500 hover:text-neutral-300"><i data-lucide="x" class="w-3.5 h-3.5"></i></button>
+        </div>
+        <pre id="cli-output-text" class="text-neutral-300 whitespace-pre overflow-x-auto select-all leading-tight"></pre>
+    </div>
+
     <script>
+        // Init Lucide Icons
         lucide.createIcons();
+
+        // 1. Mouse Spotlight Tracker (Vercel)
+        const spotlight = document.getElementById('bg-spotlight');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.pageX;
+            const y = e.pageY;
+            spotlight.style.setProperty('--x', `${x}px`);
+            spotlight.style.setProperty('--y', `${y}px`);
+        });
+
+        // 2. Dual-State Morphing Switch (UI / YAML)
+        function switchState(state) {
+            const uiView = document.getElementById('ui-view');
+            const yamlView = document.getElementById('yaml-view');
+            const btnUi = document.getElementById('toggle-ui');
+            const btnYaml = document.getElementById('toggle-yaml');
+
+            if (state === 'ui') {
+                yamlView.classList.add('hidden');
+                uiView.classList.remove('hidden');
+                btnUi.className = "px-4 py-1.5 rounded-full font-medium transition-all text-white bg-neutral-800";
+                btnYaml.className = "px-4 py-1.5 rounded-full font-medium transition-all text-neutral-500 hover:text-neutral-300";
+            } else {
+                uiView.classList.add('hidden');
+                yamlView.classList.remove('hidden');
+                btnYaml.className = "px-4 py-1.5 rounded-full font-medium transition-all text-white bg-neutral-800";
+                btnUi.className = "px-4 py-1.5 rounded-full font-medium transition-all text-neutral-500 hover:text-neutral-300";
+            }
+        }
+
+        // 3. Simulated Live Droplet Terminal Logs (Fvsch Grid Widget)
+        const logFeed = document.getElementById('terminal-feed');
+        const logs = [
+            "Initializing Nginx Gateway Route...",
+            "Listening port:443 for incoming pings",
+            "[ACTIVE] routed subdomain llm.bytaha.me -> container 'librechat'",
+            "[DB] DB client connected to MongoDB instance...",
+            "Initialized with 1 configured MCP server and 26 tools",
+            "[MCP] Connection established for github:taaha17",
+            "Checking local docker nodes status: OK",
+            "[INFO] Vertex AI: Gemini API models endpoints synced.",
+            "[INFO] DeepSeek & OpenRouter integrations running...",
+            "Server load: 0.08, Mem total: 2.0GB, Used: 43%",
+            "System backup schedule sequence completed. Next execution in 23h"
+        ];
+
+        function pushLog() {
+            if (logFeed.children.length > 5) {
+                logFeed.removeChild(logFeed.firstChild);
+            }
+            const randomLog = logs[Math.floor(Math.random() * logs.length)];
+            const time = new Date().toLocaleTimeString('de-DE', { hour12: false });
+            const logLine = document.createElement('p');
+            logLine.innerHTML = `<span class="text-neutral-600">[${time}]</span> ${randomLog}`;
+            logLine.className = "transition-all duration-300 animate-fadeIn opacity-0";
+            logFeed.appendChild(logLine);
+            setTimeout(() => logLine.classList.remove('opacity-0'), 50);
+        }
+
+        // Pop initial lines
+        for(let i=0; i < 5; i++) {
+            pushLog();
+        }
+        setInterval(pushLog, 4500);
+
+        // Simulated Ping Variation
+        setInterval(() => {
+            const currentPing = Math.floor(Math.random() * 5) + 10;
+            document.getElementById('ping-stats').textContent = `${currentPing}ms`;
+        }, 3000);
+
+        // 4. Interactive Command Palette Modal (Linear Style)
+        const modal = document.getElementById('palette-modal');
+        const input = document.getElementById('palette-input');
+        const results = document.getElementById('palette-results');
+
+        const commandRegistry = [
+            { cmd: '/help', desc: 'Display all terminal utilities.', action: showHelp },
+            { cmd: '/neofetch', desc: 'Output complete developer diagnostic dashboard.', action: runNeofetch },
+            { cmd: '/yaml', desc: 'Toggle site rendering to structured YAML representation.', action: () => switchState('yaml') },
+            { cmd: '/ui', desc: 'Switch page design schema back to graphical UI.', action: () => switchState('ui') },
+            { cmd: '/ai', desc: 'Open your private self-hosted LibreChat system.', action: () => window.open('https://llm.bytaha.me', '_blank') },
+            { cmd: '/github', desc: 'Examine GitHub active repositories.', action: () => window.open('https://github.com/taaha17', '_blank') }
+        ];
+
+        function toggleCommandPalette() {
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                input.focus();
+                input.value = '';
+                renderCommands('');
+            }
+        }
+
+        // Trigger Command Palette via Keyboard shortcut
+        window.addEventListener('keydown', (e) => {
+            if (e.key === '/') {
+                if (document.activeElement !== input) {
+                    e.preventDefault();
+                    toggleCommandPalette();
+                }
+            }
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                toggleCommandPalette();
+            }
+        });
+
+        input.addEventListener('input', (e) => {
+            renderCommands(e.target.value.trim());
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const targetCmd = input.value.trim().toLowerCase();
+                const execution = commandRegistry.find(c => c.cmd === targetCmd);
+                if (execution) {
+                    execution.action();
+                    toggleCommandPalette();
+                }
+            }
+        });
+
+        function renderCommands(query) {
+            results.innerHTML = '';
+            const filtered = commandRegistry.filter(c => c.cmd.includes(query.toLowerCase()));
+            
+            if (filtered.length === 0) {
+                results.innerHTML = `<p class="p-2 text-neutral-600 text-xs">No utility instructions found matching "${query}"</p>`;
+                return;
+            }
+
+            filtered.forEach(c => {
+                const cmdEl = document.createElement('div');
+                cmdEl.className = "flex justify-between items-center p-2 rounded hover:bg-neutral-900 cursor-pointer transition-colors";
+                cmdEl.onclick = () => {
+                    c.action();
+                    toggleCommandPalette();
+                };
+                cmdEl.innerHTML = `
+                    <span class="text-blue-400 font-bold">${c.cmd}</span>
+                    <span class="text-neutral-500 text-xs">${c.desc}</span>
+                `;
+                results.appendChild(cmdEl);
+            });
+        }
+
+        // CLI Output Display Panel Actions
+        const popup = document.getElementById('cli-popup');
+        const popupText = document.getElementById('cli-output-text');
+
+        function openCliPopup(text) {
+            popupText.textContent = text;
+            popup.classList.remove('hidden');
+        }
+
+        function closeCliPopup() {
+            popup.classList.add('hidden');
+        }
+
+        // Custom Commands Actions
+        function showHelp() {
+            const helpOutput = 
+`--- CLI COMMAND DIRECTORY ---
+/help     - Output help catalog
+/neofetch - Render system profile 
+/yaml     - Render site state config
+/ui       - Render GUI environment
+/ai       - Trigger LibreChat link
+/github   - Link to git repositories`;
+            openCliPopup(helpOutput);
+        }
+
+        function runNeofetch() {
+            const neofetchOutput = 
+`       _,met$$$$$gg.          taha@bytaha-server
+    ,g$$$$$$$$$$$$$$$P.       ------------------
+  ,g$$P"     """Y$$.".        OS: Ubuntu 24.04 LTS x86_64
+ ,$$P'          \`$$$.         Kernel: Linux 6.8.0-10
+',$$P       ,ggs. \`$$b:        Uptime: 26 days, 4 hours
+\`d$$'     ,$P"'   . $$$       Shell: bash 5.2.21
+ $$P      d$'     , $P'       Resolution: 1920x1080
+ $$;      $$.   ,d$$'         DE: Terminal Only
+ $$:      \`"Y$$$$P'           VPS: DigitalOcean Droplet
+ \`$$b                         CPU: vCPU (Intel) 1-core
+  \`Y$$b                       Memory: 832MB / 2048MB (40%)
+   \`Y$$.                      Disk: 18G / 50G (36%)
+     \`$$b.                    Status: All containers running
+       \`Y$$b.
+         \`"Y$b._
+            \`"""`;
+            openCliPopup(neofetchOutput);
+        }
     </script>
 </body>
 </html>
