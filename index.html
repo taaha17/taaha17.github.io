@@ -36,13 +36,13 @@
 
         /* Vercel spotlight grid styling */
         .grid-bg {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
         .spotlight {
-            background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(59, 130, 246, 0.06), transparent 80%);
+            background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(59, 130, 246, 0.05), transparent 80%);
         }
 
         /* Custom Scrollbar */
@@ -93,7 +93,7 @@
         </header>
 
         <!-- Hero Section -->
-        <section class="mb-20">
+        <section class="mb-16">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">
                 Taha Asif
             </h1>
@@ -109,30 +109,39 @@
         <!-- Bento Tech Dashboard (Vercel / Linear Aesthetic) -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
             
-            <!-- Live Server Terminal Logs (Fvsch Style Widget) -->
-            <div class="md:col-span-2 border border-neutral-900 bg-black/60 rounded-xl p-5 font-mono text-xs flex flex-col justify-between min-h-[220px]">
-                <div class="flex justify-between items-center mb-4 border-b border-neutral-900 pb-2">
-                    <span class="text-neutral-500 flex items-center gap-1.5"><i data-lucide="terminal" class="w-3.5 h-3.5"></i> bytaha-droplet:~$ tail -f status.log</span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping"></span>
+            <!-- Research & Engineering Core Card (Static, Minimal, Safe) -->
+            <div class="md:col-span-2 border border-neutral-900 bg-black/40 rounded-xl p-6 flex flex-col justify-between hover:border-neutral-800 transition-all duration-200">
+                <div>
+                    <div class="flex justify-between items-center mb-4 border-b border-neutral-900 pb-2">
+                        <span class="text-neutral-500 font-mono text-xs flex items-center gap-1.5"><i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i> engineering_focus.json</span>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-base font-semibold text-white">Systems Integration & R&amp;D</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed">
+                            Focusing on bridging the gap between embedded systems, automated software design, and cognitive assistance. Actively designing secure, isolated sandboxes and orchestration flows for private intelligence models.
+                        </p>
+                    </div>
                 </div>
-                <!-- Dynamic Log Feed -->
-                <div id="terminal-feed" class="flex-grow space-y-1.5 text-neutral-400 overflow-hidden select-none">
-                    <!-- Logs generated in JS -->
+                <div class="mt-4 flex gap-4 font-mono text-[10px] text-neutral-500">
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Assistive UI</span>
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Knowledge RAG</span>
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Agentic Orchestration</span>
                 </div>
             </div>
 
-            <!-- Neofetch / Stats widget -->
-            <div class="border border-neutral-900 bg-black/60 rounded-xl p-5 font-mono text-xs flex flex-col justify-between">
-                <div class="border-b border-neutral-900 pb-2 mb-2 text-neutral-500 flex items-center gap-1.5">
-                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i> sysinfo.sh
+            <!-- Platform & Spec Widgets (Safe System Details) -->
+            <div class="border border-neutral-900 bg-black/40 rounded-xl p-6 font-mono text-xs flex flex-col justify-between hover:border-neutral-800 transition-all duration-200">
+                <div class="border-b border-neutral-900 pb-2 mb-3 text-neutral-500 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5"></i> system_specs</span>
+                    <span class="flex items-center gap-1 text-[10px] text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ONLINE</span>
                 </div>
-                <div class="space-y-1 text-neutral-300">
-                    <p><span class="text-blue-400">OS:</span> Ubuntu 24.04 LTS</p>
-                    <p><span class="text-blue-400">Host:</span> DO Droplet FRA</p>
-                    <p><span class="text-blue-400">Kernel:</span> Linux 6.8.0</p>
-                    <p><span class="text-blue-400">Docker:</span> Active (4 containers)</p>
-                    <p><span class="text-blue-400">Ping (FRA):</span> <span id="ping-stats" class="text-emerald-400">12ms</span></p>
-                    <p><span class="text-blue-400">Web App:</span> llm.bytaha.me</p>
+                <div class="space-y-1.5 text-neutral-300">
+                    <p><span class="text-neutral-500">OS:</span> Ubuntu 24.04 LTS</p>
+                    <p><span class="text-neutral-500">Host:</span> DO Droplet FRA</p>
+                    <p><span class="text-neutral-500">Core:</span> Docker Stack</p>
+                    <p><span class="text-neutral-500">Routing:</span> Cloudflare SSL</p>
+                    <p><span class="text-neutral-500">Active API:</span> Dual-LLM</p>
+                    <p><span class="text-neutral-500">Gateway:</span> llm.bytaha.me</p>
                 </div>
             </div>
 
@@ -240,11 +249,11 @@
     <!-- MAIN CONTAINER (YAML CONFIG VIEW) -->
     <div id="yaml-view" class="hidden absolute top-0 left-0 right-0 z-10 max-w-4xl mx-auto px-6 py-12 md:py-24 font-mono text-sm leading-relaxed">
         <header class="flex justify-between items-center mb-16 border-b border-neutral-900 pb-6">
-            <span class="text-neutral-500">bytaha.me/profile.yaml [Code State]</span>
-            <span class="text-xs text-neutral-600">Line: 1-45</span>
+            <span class="text-neutral-500 font-mono">bytaha.me/profile.yaml [Code State]</span>
+            <span class="text-xs text-neutral-600 font-mono">Line: 1-45</span>
         </header>
         
-        <pre class="bg-transparent border border-neutral-900 p-6 rounded-xl overflow-x-auto selection:bg-neutral-800 text-neutral-300">
+        <pre class="bg-transparent border border-neutral-900 p-6 rounded-xl overflow-x-auto selection:bg-neutral-800 text-neutral-300 font-mono">
 <span class="yaml-comment"># Global Metadata Config</span>
 <span class="yaml-key">developer:</span>
   <span class="yaml-key">name:</span> <span class="yaml-string">"Taha Asif"</span>
@@ -352,48 +361,7 @@
             }
         }
 
-        // 3. Simulated Live Droplet Terminal Logs (Fvsch Grid Widget)
-        const logFeed = document.getElementById('terminal-feed');
-        const logs = [
-            "Initializing Nginx Gateway Route...",
-            "Listening port:443 for incoming pings",
-            "[ACTIVE] routed subdomain llm.bytaha.me -> container 'librechat'",
-            "[DB] DB client connected to MongoDB instance...",
-            "Initialized with 1 configured MCP server and 26 tools",
-            "[MCP] Connection established for github:taaha17",
-            "Checking local docker nodes status: OK",
-            "[INFO] Vertex AI: Gemini API models endpoints synced.",
-            "[INFO] DeepSeek & OpenRouter integrations running...",
-            "Server load: 0.08, Mem total: 2.0GB, Used: 43%",
-            "System backup schedule sequence completed. Next execution in 23h"
-        ];
-
-        function pushLog() {
-            if (logFeed.children.length > 5) {
-                logFeed.removeChild(logFeed.firstChild);
-            }
-            const randomLog = logs[Math.floor(Math.random() * logs.length)];
-            const time = new Date().toLocaleTimeString('de-DE', { hour12: false });
-            const logLine = document.createElement('p');
-            logLine.innerHTML = `<span class="text-neutral-600">[${time}]</span> ${randomLog}`;
-            logLine.className = "transition-all duration-300 animate-fadeIn opacity-0";
-            logFeed.appendChild(logLine);
-            setTimeout(() => logLine.classList.remove('opacity-0'), 50);
-        }
-
-        // Pop initial lines
-        for(let i=0; i < 5; i++) {
-            pushLog();
-        }
-        setInterval(pushLog, 4500);
-
-        // Simulated Ping Variation
-        setInterval(() => {
-            const currentPing = Math.floor(Math.random() * 5) + 10;
-            document.getElementById('ping-stats').textContent = `${currentPing}ms`;
-        }, 3000);
-
-        // 4. Interactive Command Palette Modal (Linear Style)
+        // 3. Interactive Command Palette Modal (Linear Style)
         const modal = document.getElementById('palette-modal');
         const input = document.getElementById('palette-input');
         const results = document.getElementById('palette-results');
@@ -449,7 +417,7 @@
             const filtered = commandRegistry.filter(c => c.cmd.includes(query.toLowerCase()));
             
             if (filtered.length === 0) {
-                results.innerHTML = `<p class="p-2 text-neutral-600 text-xs">No utility instructions found matching "${query}"</p>`;
+                results.innerHTML = `<p class="p-2 text-neutral-600 text-xs font-mono">No utility instructions found matching "${query}"</p>`;
                 return;
             }
 
@@ -500,15 +468,15 @@
     ,g$$$$$$$$$$$$$$$P.       ------------------
   ,g$$P"     """Y$$.".        OS: Ubuntu 24.04 LTS x86_64
  ,$$P'          \`$$$.         Kernel: Linux 6.8.0-10
-',$$P       ,ggs. \`$$b:        Uptime: 26 days, 4 hours
+',$$P       ,ggs. \`$$b:        Uptime: Safe & Isolated
 \`d$$'     ,$P"'   . $$$       Shell: bash 5.2.21
- $$P      d$'     , $P'       Resolution: 1920x1080
+ $$P      d$'     , $P'       Resolution: Responsive
  $$;      $$.   ,d$$'         DE: Terminal Only
  $$:      \`"Y$$$$P'           VPS: DigitalOcean Droplet
  \`$$b                         CPU: vCPU (Intel) 1-core
-  \`Y$$b                       Memory: 832MB / 2048MB (40%)
-   \`Y$$.                      Disk: 18G / 50G (36%)
-     \`$$b.                    Status: All containers running
+  \`Y$$b                       Memory: Private Stack Active
+   \`Y$$.                      Disk: Private Stack Active
+     \`$$b.                    Status: 100% Secure
        \`Y$$b.
          \`"Y$b._
             \`"""`;
