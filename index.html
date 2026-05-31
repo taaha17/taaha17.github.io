@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taha Asif | Infotronic Systems Engineer</title>
+    <title>Taha Asif | Software Dev & Research Engineer</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts: Geist & JetBrains Mono -->
+    <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Geist', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     }
                 }
@@ -27,7 +27,6 @@
     </script>
 
     <style>
-        /* Base setup mimicking paco.me and vercel */
         body {
             background-color: #000000;
             color: #f4f4f5;
@@ -36,13 +35,13 @@
 
         /* Vercel spotlight grid styling */
         .grid-bg {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
         .spotlight {
-            background: radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(59, 130, 246, 0.05), transparent 80%);
+            background: radial-gradient(500px circle at var(--x, 0px) var(--y, 0px), rgba(59, 130, 246, 0.04), transparent 80%);
         }
 
         /* Custom Scrollbar */
@@ -60,7 +59,7 @@
             background: #2d2d34;
         }
 
-        /* Fluid code layout syntax highlighting colors */
+        /* Syntax highlighting colors */
         .yaml-key { color: #f43f5e; }
         .yaml-string { color: #10b981; }
         .yaml-comment { color: #71717a; }
@@ -76,72 +75,82 @@
     <div id="ui-view" class="relative z-10 transition-opacity duration-300 max-w-4xl mx-auto px-6 py-12 md:py-24">
         
         <!-- Header -->
-        <header class="flex justify-between items-center mb-16 border-b border-neutral-900 pb-6">
+        <nav class="flex justify-between items-center mb-16 border-b border-neutral-900 pb-6">
             <div class="flex items-center gap-3">
-                <span class="font-mono text-sm tracking-wider text-neutral-400">root@bytaha:~#</span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="font-mono text-sm tracking-wider text-neutral-400">bytaha.me</span>
             </div>
             <div class="flex items-center gap-6">
-                <!-- Mini Command Search Trigger -->
-                <button onclick="toggleCommandPalette()" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded border border-neutral-800 bg-neutral-950 text-xs text-neutral-400 hover:border-neutral-700 transition-all font-mono">
-                    <span>Press</span> <kbd class="px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-[10px]">/</kbd> <span>to act</span>
-                </button>
-                <a href="https://llm.bytaha.me" target="_blank" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1">
+                <a href="https://github.com/taaha17" target="_blank" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                </a>
+                <a href="https://llm.bytaha.me" target="_blank" class="text-sm font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5">
                     AI Hub <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
-        </header>
+        </nav>
 
         <!-- Hero Section -->
         <section class="mb-16">
+            <!-- Active Social Proof Employment Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-800 bg-neutral-950/80 text-xs font-mono text-neutral-300 mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Currently: <a href="https://zat.nrw/" target="_blank" class="text-white hover:text-blue-400 underline decoration-neutral-800 hover:decoration-blue-400 transition-colors">Research Engineer @ ZAT</a>
+            </div>
+
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">
                 Taha Asif
             </h1>
-            <p class="text-lg md:text-xl text-neutral-400 leading-relaxed font-light">
+            
+            <p class="text-lg md:text-xl text-neutral-400 leading-relaxed font-light mb-6">
                 Hello there! I'm currently studying my Bachelors in 
                 <a href="https://www.hochschule-rhein-waal.de/en/faculties/communication-and-environment/degree-programmes/bachelor-degree-programmes/infotronic" target="_blank" class="text-white hover:text-blue-400 underline decoration-neutral-800 hover:decoration-blue-400 transition-all underline-offset-4 font-normal">
                     Infotronic Systems Engineering
                 </a> 
-                at <span class="text-white font-normal">Hochschule Rhein-Waal</span>, Germany. I specialize in assistive research, advanced retrieval systems, model finetuning, and containerized cloud infrastructure.
+                at <span class="text-white font-normal">Hochschule Rhein-Waal</span>, Germany. I focus on assistive research, RAG systems, LLM fine-tuning, agentic programming, and self-hosted infrastructure.
+            </p>
+
+            <!-- Infotronic Systems Engineering Bridge Explanation -->
+            <p class="text-base text-neutral-500 leading-relaxed border-l border-neutral-800 pl-4">
+                My degree in Infotronic Systems Engineering bridges sensor technology, signal processing, and data engineering with modern software. This interdisciplinary foundation trains me to build highly efficient, systems-aware, and resource-conscious applications from the network layer up to the browser interface.
             </p>
         </section>
 
         <!-- Bento Tech Dashboard (Vercel / Linear Aesthetic) -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
             
-            <!-- Research & Engineering Core Card (Static, Minimal, Safe) -->
+            <!-- Research & Engineering Core Card -->
             <div class="md:col-span-2 border border-neutral-900 bg-black/40 rounded-xl p-6 flex flex-col justify-between hover:border-neutral-800 transition-all duration-200">
                 <div>
                     <div class="flex justify-between items-center mb-4 border-b border-neutral-900 pb-2">
-                        <span class="text-neutral-500 font-mono text-xs flex items-center gap-1.5"><i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i> engineering_focus.json</span>
+                        <span class="text-neutral-500 font-mono text-xs flex items-center gap-1.5"><i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i> research_focus.json</span>
                     </div>
-                    <div class="space-y-4">
-                        <h3 class="text-base font-semibold text-white">Systems Integration & R&amp;D</h3>
+                    <div class="space-y-3">
+                        <h3 class="text-base font-semibold text-white">Active Research &amp; Deployments</h3>
                         <p class="text-sm text-neutral-400 leading-relaxed">
-                            Focusing on bridging the gap between embedded systems, automated software design, and cognitive assistance. Actively designing secure, isolated sandboxes and orchestration flows for private intelligence models.
+                            Developing pro-adaptive cognitive assistance environments at <a href="https://zat.nrw/" target="_blank" class="text-white underline hover:text-blue-400 decoration-neutral-800">ZAT</a>. Engineering local vector database pipelines, orchestrating private LLM gateways, and customizing AI engines to accommodate varying cognitive needs.
                         </p>
                     </div>
                 </div>
                 <div class="mt-4 flex gap-4 font-mono text-[10px] text-neutral-500">
                     <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Assistive UI</span>
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Knowledge RAG</span>
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Agentic Orchestration</span>
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Hybrid RAG</span>
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Agentic Systems</span>
                 </div>
             </div>
 
             <!-- Platform & Spec Widgets (Safe System Details) -->
             <div class="border border-neutral-900 bg-black/40 rounded-xl p-6 font-mono text-xs flex flex-col justify-between hover:border-neutral-800 transition-all duration-200">
                 <div class="border-b border-neutral-900 pb-2 mb-3 text-neutral-500 flex items-center justify-between">
-                    <span class="flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5"></i> system_specs</span>
-                    <span class="flex items-center gap-1 text-[10px] text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ONLINE</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5"></i> stack_specs</span>
+                    <span class="flex items-center gap-1 text-[10px] text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> SYSTEM ACTIVE</span>
                 </div>
                 <div class="space-y-1.5 text-neutral-300">
-                    <p><span class="text-neutral-500">OS:</span> Ubuntu 24.04 LTS</p>
-                    <p><span class="text-neutral-500">Host:</span> DO Droplet FRA</p>
-                    <p><span class="text-neutral-500">Core:</span> Docker Stack</p>
-                    <p><span class="text-neutral-500">Routing:</span> Cloudflare SSL</p>
-                    <p><span class="text-neutral-500">Active API:</span> Dual-LLM</p>
-                    <p><span class="text-neutral-500">Gateway:</span> llm.bytaha.me</p>
+                    <p><span class="text-neutral-500">Location:</span> NRW, Germany</p>
+                    <p><span class="text-neutral-500">Platform:</span> VPS / Docker</p>
+                    <p><span class="text-neutral-500">Database:</span> Mongo &amp; Postgres</p>
+                    <p><span class="text-neutral-500">Security:</span> Cloudflare SSL</p>
+                    <p><span class="text-neutral-500">LLM Hub:</span> llm.bytaha.me</p>
+                    <p><span class="text-neutral-500">Engines:</span> DeepSeek / Gemini / Claude</p>
                 </div>
             </div>
 
@@ -155,35 +164,102 @@
             </h2>
 
             <div class="space-y-6">
-                <!-- Project Row 1 -->
+
+                <!-- FEATURED PROJECT 1: HexiLexi -->
+                <div class="group border border-blue-900/40 bg-neutral-950/40 hover:bg-neutral-950/60 hover:border-blue-700/60 rounded-xl p-6 transition-all duration-200 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 px-3 py-1 bg-blue-500/10 border-l border-b border-blue-900/40 rounded-bl-lg font-mono text-[10px] text-blue-400 tracking-wider font-semibold">
+                        GRADE: 1.0 (PERFECT)
+                    </div>
+                    
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-blue-400 uppercase tracking-widest block mb-1">Featured Project // Project Lead &amp; Lead Dev</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">HexiLexi — AI Word Detective</h3>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-neutral-300 leading-relaxed mb-4 font-normal">
+                        An LLM-driven active vocabulary mentor component designed to replace passive dictionary definitions with interactive learning modes for primary school readers. Integrated as a custom React component within the university's public <strong class="text-white">STREEN</strong> platform.
+                    </p>
+
+                    <ul class="text-sm text-neutral-400 leading-relaxed mb-6 space-y-2 list-none">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 font-mono mt-0.5">•</span> <span><strong>Architected Prompt Pipeline:</strong> Designed a two-step "Architect and Builder" system to process inputs using Gemma 3:12b via local Ollama API instances, minimizing response latencies and maintaining child-friendly persona consistency.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 font-mono mt-0.5">•</span> <span><strong>Algorithmic Evaluation:</strong> Programmed a local answer-grader using Levenshtein distance fuzzy-matching, ensuring precise validation for kids' spelling deviations without resource-heavy LLM calls.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-500 font-mono mt-0.5">•</span> <span><strong>UX Testing &amp; Stability:</strong> Managed UI state-locking and rate-limiting request queues to handle concurrent clicks during real-world primary school tests.</span>
+                        </li>
+                    </ul>
+
+                    <!-- Embedded PDF and Live Site Links -->
+                    <div class="flex flex-wrap gap-3 mb-6 font-mono text-xs">
+                        <a href="https://streen-app.ais-lab.de/" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 flex items-center gap-1.5 transition-colors">
+                            <i data-lucide="play" class="w-3.5 h-3.5 text-emerald-400"></i> Live Integration
+                        </a>
+                        <a href="hexilexi-paper.pdf" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 flex items-center gap-1.5 transition-colors">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i> Read Research Paper
+                        </a>
+                        <a href="hexilexi-poster.pdf" target="_blank" class="px-3 py-1.5 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 flex items-center gap-1.5 transition-colors">
+                            <i data-lucide="image" class="w-3.5 h-3.5 text-purple-400"></i> View Project Poster
+                        </a>
+                    </div>
+
+                    <div class="flex gap-2 font-mono text-[10px] text-neutral-500">
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">React</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Gemma 3:12B</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Ollama API</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Ant Design</span>
+                    </div>
+                </div>
+
+                <!-- Project Row 2 (ADHD Reading Assistant) -->
                 <div class="group border border-neutral-900 bg-neutral-950/20 hover:bg-neutral-950/40 hover:border-neutral-800 rounded-xl p-6 transition-all duration-200">
-                    <div class="flex justify-between items-start mb-3">
+                    <div class="flex justify-between items-start mb-4">
                         <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">ADHD Reading Assistant</h3>
                         <a href="https://github.com/afkrause/adhd_reading_assistant" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
                     </div>
-                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-                        A collaborative academic repository focusing on structural document parsing, comprehension assistive tools, and custom textual optimization for readers with ADHD.
-                    </p>
+                    <ul class="text-sm text-neutral-400 leading-relaxed mb-6 space-y-2 list-none">
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Developing pro-adaptive cognitive assistance systems at ZAT for academic readability research.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Engineered intelligent text transformation pipelines to optimize reading structure and document parsing.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Integrating secure, localized LLM fine-tuning techniques to deliver personalized cognitive accessibility.</span>
+                        </li>
+                    </ul>
                     <div class="flex gap-2 font-mono text-[10px] text-neutral-400">
                         <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Python</span>
                         <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Assistive Tech</span>
-                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">PDF Parsing</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Fine-tuning</span>
                     </div>
                 </div>
 
-                <!-- Project Row 2 -->
+                <!-- Project Row 3 (HSRW RAG Chatbot) -->
                 <div class="group border border-neutral-900 bg-neutral-950/20 hover:bg-neutral-950/40 hover:border-neutral-800 rounded-xl p-6 transition-all duration-200">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">HSRW RAG Chatbot</h3>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">HSRW RAG Chatbot ("zero")</h3>
                         <a href="https://github.com/taaha17/hsrw-rag-chatbot" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
                     </div>
-                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-                        An intelligent system enabling seamless curriculum and module handbook queries for HSRW. Leverages vector embeddings and local Ollama pipelines for offline computation.
-                    </p>
+                    <ul class="text-sm text-neutral-400 leading-relaxed mb-6 space-y-2 list-none">
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Built a complete offline RAG pipeline using Ollama (Llama 3.2), ChromaDB, and LangChain frameworks.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Indexed 500+ pages of university curriculum handbooks into structured vector embeddings.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Implemented hybrid query routing and intent detection to achieve sub-200ms document retrieval response times.</span>
+                        </li>
+                    </ul>
                     <div class="flex gap-2 font-mono text-[10px] text-neutral-400">
                         <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Python</span>
                         <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Vector Embeddings</span>
@@ -191,21 +267,26 @@
                     </div>
                 </div>
 
-                <!-- Project Row 3 -->
+                <!-- Project Row 4 (Games Ledger) -->
                 <div class="group border border-neutral-900 bg-neutral-950/20 hover:bg-neutral-950/40 hover:border-neutral-800 rounded-xl p-6 transition-all duration-200">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">Self-Hosted AI Platform</h3>
-                        <a href="https://llm.bytaha.me" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">Games Ledger</h3>
+                        <a href="https://github.com/taaha17/games-ledger" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
                     </div>
-                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-                        My private, always-available AI hub running LibreChat inside containerized environments. Integrated securely with Cloudflare, Docker, and multi-model API frameworks.
-                    </p>
+                    <ul class="text-sm text-neutral-400 leading-relaxed mb-6 space-y-2 list-none">
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Designed a personal application stack engineered to keep records, logs, and progression of videogames.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-neutral-700 font-mono mt-0.5">•</span> <span>Architected clean relational schema modeling and optimized backend data storage layers.</span>
+                        </li>
+                    </ul>
                     <div class="flex gap-2 font-mono text-[10px] text-neutral-400">
-                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Docker Compose</span>
-                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">LibreChat</span>
-                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Nginx Proxy</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Application Design</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Datastores</span>
+                        <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Git</span>
                     </div>
                 </div>
             </div>
@@ -232,16 +313,19 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="border-t border-neutral-950 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-neutral-500">
-            <p>© 2026 Taha Asif. Frankfurt Host Platform.</p>
-            <div class="flex gap-6 font-mono text-xs">
+        <!-- Footer / Contact Hub -->
+        <footer class="border-t border-neutral-900 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-neutral-500">
+            <p>© 2026 Taha Asif. Systems &amp; Research Engineer.</p>
+            <div class="flex gap-6 font-mono text-xs items-center">
                 <a href="https://github.com/taaha17" target="_blank" class="hover:text-white transition-colors flex items-center gap-1.5">
                     <i data-lucide="github" class="w-3.5 h-3.5"></i> github/taaha17
                 </a>
-                <a href="mailto:contact@bytaha.me" class="hover:text-white transition-colors flex items-center gap-1.5">
-                    <i data-lucide="mail" class="w-3.5 h-3.5"></i> email
-                </a>
+                
+                <!-- Interactive Copy Email Badge with smooth transition -->
+                <button id="copy-email-btn" onclick="copyEmailToClipboard()" class="hover:text-white transition-all flex items-center gap-1.5 border border-neutral-900 hover:border-neutral-700 bg-neutral-950/50 px-2.5 py-1 rounded-full text-neutral-400">
+                    <i data-lucide="copy" class="w-3.5 h-3.5" id="copy-icon"></i>
+                    <span id="copy-text">tahasif.1701@gmail.com</span>
+                </button>
             </div>
         </footer>
     </div>
@@ -257,8 +341,11 @@
 <span class="yaml-comment"># Global Metadata Config</span>
 <span class="yaml-key">developer:</span>
   <span class="yaml-key">name:</span> <span class="yaml-string">"Taha Asif"</span>
-  <span class="yaml-key">role:</span> <span class="yaml-string">"Infotronic Systems Engineer"</span>
-  <span class="yaml-key">location:</span> <span class="yaml-string">"Germany"</span>
+  <span class="yaml-key">role:</span> <span class="yaml-string">"Systems &amp; Research Engineer"</span>
+  <span class="yaml-key">location:</span> <span class="yaml-string">"NRW, Germany"</span>
+  <span class="yaml-key">employment:</span>
+    <span class="yaml-key">company:</span> <span class="yaml-string">"Center for Assistive Technologies (ZAT)"</span>
+    <span class="yaml-key">role:</span> <span class="yaml-string">"Part-time Research Student"</span>
   <span class="yaml-key">education:</span>
     <span class="yaml-key">degree:</span> <span class="yaml-string">"B.Sc. Infotronic Systems Engineering"</span>
     <span class="yaml-key">institution:</span> <span class="yaml-string">"Hochschule Rhein-Waal"</span>
@@ -279,6 +366,10 @@
 
 <span class="yaml-comment"># Project Index Mapping</span>
 <span class="yaml-key">repositories:</span>
+  <span class="yaml-key">hexilexi_word_detective:</span>
+    <span class="yaml-key">scope:</span> <span class="yaml-string">"LLM-driven active vocabulary mentor component"</span>
+    <span class="yaml-key">role:</span> <span class="yaml-string">"Project Lead &amp; Lead Developer"</span>
+    <span class="yaml-key">grade:</span> <span class="yaml-string">"1.0"</span>
   <span class="yaml-key">adhd_reading_assistant:</span>
     <span class="yaml-key">collaborative:</span> <span class="yaml-string">"afkrause"</span>
     <span class="yaml-key">scope:</span> <span class="yaml-string">"assistive readability optimization"</span>
@@ -297,35 +388,6 @@
         <button id="toggle-yaml" onclick="switchState('yaml')" class="px-4 py-1.5 rounded-full font-medium transition-all text-neutral-500 hover:text-neutral-300">
             [YAML]
         </button>
-    </div>
-
-    <!-- COMMAND PALETTE MODAL (Linear Style) -->
-    <div id="palette-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-24 px-4">
-        <div class="border border-neutral-900 bg-neutral-950 w-full max-w-lg rounded-xl overflow-hidden shadow-2xl font-mono text-sm">
-            <div class="flex items-center gap-3 px-4 py-3 border-b border-neutral-900">
-                <i data-lucide="chevron-right" class="text-neutral-500 w-4 h-4"></i>
-                <input id="palette-input" type="text" placeholder="Type a command (try '/help' or '/neofetch')..." class="bg-transparent border-0 outline-none text-white w-full placeholder-neutral-600 text-sm">
-                <button onclick="toggleCommandPalette()" class="text-neutral-600 hover:text-neutral-400 text-xs">ESC</button>
-            </div>
-            
-            <div id="palette-results" class="max-h-60 overflow-y-auto p-2 space-y-1">
-                <!-- Commands injected by JS -->
-            </div>
-            
-            <div class="border-t border-neutral-900 px-4 py-2 flex justify-between items-center text-[10px] text-neutral-500">
-                <span>Use commands with a leading slash '/'</span>
-                <span>Enter to execute</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- CLI Output Pop-up Terminal (For NeoFetch and Easter eggs) -->
-    <div id="cli-popup" class="hidden fixed bottom-6 left-6 z-50 w-80 max-w-full border border-neutral-900 bg-neutral-950/95 backdrop-blur rounded-xl p-5 shadow-2xl font-mono text-xs">
-        <div class="flex justify-between items-center border-b border-neutral-900 pb-2 mb-3">
-            <span class="text-neutral-400">output.log</span>
-            <button onclick="closeCliPopup()" class="text-neutral-500 hover:text-neutral-300"><i data-lucide="x" class="w-3.5 h-3.5"></i></button>
-        </div>
-        <pre id="cli-output-text" class="text-neutral-300 whitespace-pre overflow-x-auto select-all leading-tight"></pre>
     </div>
 
     <script>
@@ -353,134 +415,40 @@
                 uiView.classList.remove('hidden');
                 btnUi.className = "px-4 py-1.5 rounded-full font-medium transition-all text-white bg-neutral-800";
                 btnYaml.className = "px-4 py-1.5 rounded-full font-medium transition-all text-neutral-500 hover:text-neutral-300";
+                window.scrollTo(0, 0);
             } else {
                 uiView.classList.add('hidden');
                 yamlView.classList.remove('hidden');
                 btnYaml.className = "px-4 py-1.5 rounded-full font-medium transition-all text-white bg-neutral-800";
                 btnUi.className = "px-4 py-1.5 rounded-full font-medium transition-all text-neutral-500 hover:text-neutral-300";
+                window.scrollTo(0, 0);
             }
         }
 
-        // 3. Interactive Command Palette Modal (Linear Style)
-        const modal = document.getElementById('palette-modal');
-        const input = document.getElementById('palette-input');
-        const results = document.getElementById('palette-results');
+        // 3. Interactive Copy Email to Clipboard Action
+        function copyEmailToClipboard() {
+            const email = "tahasif.1701@gmail.com";
+            const btn = document.getElementById('copy-email-btn');
+            const icon = document.getElementById('copy-icon');
+            const text = document.getElementById('copy-text');
 
-        const commandRegistry = [
-            { cmd: '/help', desc: 'Display all terminal utilities.', action: showHelp },
-            { cmd: '/neofetch', desc: 'Output complete developer diagnostic dashboard.', action: runNeofetch },
-            { cmd: '/yaml', desc: 'Toggle site rendering to structured YAML representation.', action: () => switchState('yaml') },
-            { cmd: '/ui', desc: 'Switch page design schema back to graphical UI.', action: () => switchState('ui') },
-            { cmd: '/ai', desc: 'Open your private self-hosted LibreChat system.', action: () => window.open('https://llm.bytaha.me', '_blank') },
-            { cmd: '/github', desc: 'Examine GitHub active repositories.', action: () => window.open('https://github.com/taaha17', '_blank') }
-        ];
+            navigator.clipboard.writeText(email).then(() => {
+                // Change UI state smoothly
+                text.textContent = "Copied!";
+                btn.className = "hover:text-white transition-all flex items-center gap-1.5 border border-emerald-900/50 bg-emerald-950/20 px-2.5 py-1 rounded-full text-emerald-400";
+                icon.setAttribute('data-lucide', 'check');
+                lucide.createIcons(); // Force re-render of dynamic icons
 
-        function toggleCommandPalette() {
-            modal.classList.toggle('hidden');
-            if (!modal.classList.contains('hidden')) {
-                input.focus();
-                input.value = '';
-                renderCommands('');
-            }
-        }
-
-        // Trigger Command Palette via Keyboard shortcut
-        window.addEventListener('keydown', (e) => {
-            if (e.key === '/') {
-                if (document.activeElement !== input) {
-                    e.preventDefault();
-                    toggleCommandPalette();
-                }
-            }
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                toggleCommandPalette();
-            }
-        });
-
-        input.addEventListener('input', (e) => {
-            renderCommands(e.target.value.trim());
-        });
-
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const targetCmd = input.value.trim().toLowerCase();
-                const execution = commandRegistry.find(c => c.cmd === targetCmd);
-                if (execution) {
-                    execution.action();
-                    toggleCommandPalette();
-                }
-            }
-        });
-
-        function renderCommands(query) {
-            results.innerHTML = '';
-            const filtered = commandRegistry.filter(c => c.cmd.includes(query.toLowerCase()));
-            
-            if (filtered.length === 0) {
-                results.innerHTML = `<p class="p-2 text-neutral-600 text-xs font-mono">No utility instructions found matching "${query}"</p>`;
-                return;
-            }
-
-            filtered.forEach(c => {
-                const cmdEl = document.createElement('div');
-                cmdEl.className = "flex justify-between items-center p-2 rounded hover:bg-neutral-900 cursor-pointer transition-colors";
-                cmdEl.onclick = () => {
-                    c.action();
-                    toggleCommandPalette();
-                };
-                cmdEl.innerHTML = `
-                    <span class="text-blue-400 font-bold">${c.cmd}</span>
-                    <span class="text-neutral-500 text-xs">${c.desc}</span>
-                `;
-                results.appendChild(cmdEl);
+                // Revert to original state after 2 seconds
+                setTimeout(() => {
+                    text.textContent = email;
+                    btn.className = "hover:text-white transition-all flex items-center gap-1.5 border border-neutral-900 hover:border-neutral-700 bg-neutral-950/50 px-2.5 py-1 rounded-full text-neutral-400";
+                    icon.setAttribute('data-lucide', 'copy');
+                    lucide.createIcons();
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
             });
-        }
-
-        // CLI Output Display Panel Actions
-        const popup = document.getElementById('cli-popup');
-        const popupText = document.getElementById('cli-output-text');
-
-        function openCliPopup(text) {
-            popupText.textContent = text;
-            popup.classList.remove('hidden');
-        }
-
-        function closeCliPopup() {
-            popup.classList.add('hidden');
-        }
-
-        // Custom Commands Actions
-        function showHelp() {
-            const helpOutput = 
-`--- CLI COMMAND DIRECTORY ---
-/help     - Output help catalog
-/neofetch - Render system profile 
-/yaml     - Render site state config
-/ui       - Render GUI environment
-/ai       - Trigger LibreChat link
-/github   - Link to git repositories`;
-            openCliPopup(helpOutput);
-        }
-
-        function runNeofetch() {
-            const neofetchOutput = 
-`       _,met$$$$$gg.          taha@bytaha-server
-    ,g$$$$$$$$$$$$$$$P.       ------------------
-  ,g$$P"     """Y$$.".        OS: Ubuntu 24.04 LTS x86_64
- ,$$P'          \`$$$.         Kernel: Linux 6.8.0-10
-',$$P       ,ggs. \`$$b:        Uptime: Safe & Isolated
-\`d$$'     ,$P"'   . $$$       Shell: bash 5.2.21
- $$P      d$'     , $P'       Resolution: Responsive
- $$;      $$.   ,d$$'         DE: Terminal Only
- $$:      \`"Y$$$$P'           VPS: DigitalOcean Droplet
- \`$$b                         CPU: vCPU (Intel) 1-core
-  \`Y$$b                       Memory: Private Stack Active
-   \`Y$$.                      Disk: Private Stack Active
-     \`$$b.                    Status: 100% Secure
-       \`Y$$b.
-         \`"Y$b._
-            \`"""`;
-            openCliPopup(neofetchOutput);
         }
     </script>
 </body>
