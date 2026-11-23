@@ -321,20 +321,20 @@
         </figcaption>
       </figure>
 
-      <p>People with ADHD experience elevated cognitive effort and attention fluctuations when reading digital text that static font settings cannot address. I implemented the closed-loop pro-adaptive control layer (Section 3.2 of our MuC 2026 paper), which drives a single continuous parameter—the Dynamic Support Index, DSI ∈ [0, 1]—so visual support scales up as fatigue grows and recedes as focus recovers.</p>
+      <p>Long digital documents are hard to stay focused on with ADHD, and static font settings rarely adapt as attention fades. I built the adaptive reading logic for our desktop app so visual reading aids scale up automatically as fatigue grows and step back down as focus recovers.</p>
 
       <dl class="spec-list">
         <div class="spec-row">
-          <dt>Attentional state</dt>
-          <dd>Tracks reading velocity over a 60 s rolling window (updated every 5 s) against a calibrated 3-minute baseline, filtering out scroll/cursor movement, &gt;8 s idle gaps, and &gt;550 wpm skimming.</dd>
+          <dt>Reading pace</dt>
+          <dd>Measures reading speed over a 60-second rolling window (updated every 5 seconds) against a 3-minute personal baseline, filtering out idle pauses (&gt;8 s), scrolling, and fast skimming (&gt;550 wpm).</dd>
         </div>
         <div class="spec-row">
-          <dt>Pharmacodynamics</dt>
-          <dd>Approximates expected therapeutic concentration from hours since intake using peak-normalised first-order absorption and elimination kinetics across immediate-, extended-, and osmotic-release profiles.</dd>
+          <dt>Medication timing</dt>
+          <dd>Optionally factors in hours since medication intake across immediate-, extended-, and long-acting schedules to estimate when focus is likely to dip.</dd>
         </div>
         <div class="spec-row">
-          <dt>Hysteresis &amp; 5 tiers</dt>
-          <dd>Smooths raw DSI with an exponential moving average (α = 0.1) and a ±3% dead-band before stepping across plain text, bionic font, line highlight, high-contrast word highlight, and peripheral blur.</dd>
+          <dt>Smooth 5-tier support</dt>
+          <dd>Applies smoothing and a small buffer threshold so the interface switches calmly—without flickering—between plain text, bionic font, line highlight, word highlight, and peripheral blur.</dd>
         </div>
       </dl>
 
@@ -351,21 +351,21 @@
         <h3>HexiLexi</h3>
         <span class="when">2025—2026</span>
       </div>
-      <div class="meta">Project lead &amp; lead developer, STREEN at LeseLab / React, Gemma 3:12b, Ollama</div>
+      <div class="meta">Project lead &amp; lead developer, STREEN at LeseLab / React, JavaScript, Gemma 3:12b, Ollama</div>
 
       <!-- shortcut: leselab.de is temporarily offline, restore anchor href="http://leselab.de/" once server is back -->
-      <p>An inquiry-based vocabulary companion embedded as a modular React component inside the STREEN digital reading platform for LeseLab. Instead of handing children passive dictionary definitions, it guides 8-to-10-year-olds through four state-machine modes (Explain, Discover, Synonym, and German compound Word Parts) using a local Gemma 3:12b model on Ollama.</p>
-      <p>Tested across four classroom sessions in two primary schools. Migrating from Llama 3.3 (30–45 s latency) to Gemma 3:12b and splitting one monolithic prompt into a two-step pipeline made classroom response times viable.</p>
+      <p>A German vocabulary learning tool built as a React module inside HSRW's live STREEN reading platform for LeseLab. Instead of showing static dictionary definitions, it guides 8-to-10-year-olds through four interactive modes (Explain, Discover, Synonym, and German compound Word Parts) using a local Gemma 3:12b model on Ollama.</p>
+      <p>Tested across four classroom sessions in two primary schools (N = 38). Moving from Llama 3.3 (30–45 s wait times) to Gemma 3:12b and splitting one slow prompt into two focused steps made live classroom use practical.</p>
 
       <div class="pipeline">
-        <div class="caption">System pipeline (Section 3 of project report)</div>
+        <div class="caption">How a clicked word becomes an interactive exercise</div>
         <div class="flow">
-          <div class="step"><span class="n">01</span><b>Architect prompt</b><small>Analyzes the clicked word in sentence context and outputs JSON (meaning, hints, distractors, synonyms).</small></div>
-          <div class="step"><span class="n">02</span><b>Builder prompt</b><small>Drives the active mode's multi-turn state machine using the Architect's JSON payload.</small></div>
-          <div class="step"><span class="n">03</span><b>Browser grader</b><small>Grades typed or German Web Speech answers via exact, substring, and Levenshtein similarity.</small></div>
-          <div class="step"><span class="n">04</span><b>Request queue</b><small>Queues requests and locks UI state with AbortController timeouts so classroom button-spamming never crashes the API.</small></div>
+          <div class="step"><span class="n">01</span><b>Word analysis</b><small>Reads the clicked word in sentence context and returns structured JSON (meaning, hints, synonyms, distractors).</small></div>
+          <div class="step"><span class="n">02</span><b>Interactive turn</b><small>Drives the active learning mode's follow-up prompts and hints from that structured JSON.</small></div>
+          <div class="step"><span class="n">03</span><b>Browser grader</b><small>Checks typed or German voice answers directly in the browser with typo-tolerant matching.</small></div>
+          <div class="step"><span class="n">04</span><b>Request queue</b><small>Queues requests and locks buttons with request timeouts so rapid clicking in class never crashes the API.</small></div>
         </div>
-        <div class="flow-note"><span>Model: Gemma 3:12b on a local AIS Lab Ollama instance.</span><span><b>4 iterations in 2 primary schools (N = 38)</b></span></div>
+        <div class="flow-note"><span>Model: Gemma 3:12b on a local AIS Lab Ollama instance.</span><span><b>4 sessions in 2 primary schools (N = 38)</b></span></div>
       </div>
 
       <div class="links">
